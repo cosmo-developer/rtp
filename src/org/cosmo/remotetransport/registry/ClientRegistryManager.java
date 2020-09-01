@@ -1,5 +1,7 @@
 package org.cosmo.remotetransport.registry;
-
+/**
+ * @author Sonu Aryan
+ */
 import org.cosmo.remotetransport.exceptions.InvalidProtocolException;
 import org.cosmo.remotetransport.registry.rdata.RemoteData;
 

@@ -7,7 +7,9 @@ import org.cosmo.remotetransport.inbuilt.InbuiltServices;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryManagerMXBean;
 import java.lang.management.OperatingSystemMXBean;
-
+/**
+ * @author Sonu Aryan
+ */
 @RemoteControlled(name = InbuiltServices.DEVICE_INFO_PROVIDER_SERVICES)
 public class DeviceInfoProvider {
     OperatingSystemMXBean os=null;

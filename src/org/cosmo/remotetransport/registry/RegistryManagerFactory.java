@@ -1,5 +1,7 @@
 package org.cosmo.remotetransport.registry;
-
+/**
+ * @author Sonu Aryan
+ */
 import org.cosmo.remotetransport.annotations.RemoteControlled;
 import org.cosmo.remotetransport.exceptions.DuplicateKeyEntry;
 import org.cosmo.remotetransport.exceptions.InvalidProtocolException;

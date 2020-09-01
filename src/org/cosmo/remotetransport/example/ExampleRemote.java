@@ -7,6 +7,9 @@ import org.cosmo.remotetransport.annotations.RemoteParam;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+/**
+ * @author Sonu Aryan
+ */
 @RemoteControlled(name = "example")
 public class ExampleRemote {
     /**

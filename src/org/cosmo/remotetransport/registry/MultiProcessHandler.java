@@ -1,4 +1,7 @@
 package org.cosmo.remotetransport.registry;
+/**
+ * @author Sonu Aryan
+ */
 import org.cosmo.remotetransport.annotations.RemoteParam;
 import org.cosmo.remotetransport.registry.rdata.RemoteData;
 import java.io.IOException;

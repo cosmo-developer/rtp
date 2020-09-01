@@ -1,8 +1,9 @@
 package org.cosmo.remotetransport.registry;
 
 import org.cosmo.remotetransport.exceptions.InvalidRemoteException;
-import org.cosmo.remotetransport.registry.rdata.RemoteData;
-
+/**
+ * @author Sonu Aryan
+ */
 import java.lang.reflect.Method;
 
 public interface ServerRegistryManager {
