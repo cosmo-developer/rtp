@@ -26,7 +26,7 @@ public class FileService {
     @RemoteMethod(name = "writeFile")
     public Object writeInMyFile(
             @RemoteParam(name = "filename")String name,
-            @RemoteParam(name = "data")byte[] data){
+            @RemoteParam(name = "data")byte[] data) {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             fos.write(data);
             fos.flush();

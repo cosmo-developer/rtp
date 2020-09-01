@@ -41,4 +41,5 @@ public class DeviceInfoProvider {
         return memoryManagers.length;
     }
 
+
 }

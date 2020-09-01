@@ -117,7 +117,7 @@ public abstract class RegistryManagerFactory {
             String methodname="";
             @Override
             public void register(String path) throws InvalidProtocolException {
-                if (path.startsWith("cosmo://")){
+                if (path.startsWith("rtp://")){
                     if (path.split(":").length==3){
                         HOST=path.split(":")[1].replace("//","");
                         PORT=Integer.parseInt(path.split(":")[2].split("/")[0]);
