@@ -7,7 +7,7 @@ import org.cosmo.remotetransport.exceptions.DuplicateKeyEntry;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-class ClassWithRemoteName {
+public class ClassWithRemoteName {
     final String name;
     final Class clazz;
     final ArrayList<MethodWithName> methods;
@@ -29,6 +29,9 @@ class ClassWithRemoteName {
     }
     public String name(){
         return this.name;
+    }
+    public String getMethodName(int mi){
+        return methods.get(mi).name();
     }
     public Class clazz(){
         return this.clazz;

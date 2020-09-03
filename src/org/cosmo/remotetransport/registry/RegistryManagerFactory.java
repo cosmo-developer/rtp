@@ -167,4 +167,7 @@ public abstract class RegistryManagerFactory {
             }
         };
     }
+    public static ArrayList<ClassWithRemoteName> getList(){
+        return RegistryManagerFactory.remotes;
+    }
 }
