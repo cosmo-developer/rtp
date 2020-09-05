@@ -43,6 +43,6 @@ public class RTPSessionExample {
                 "name",
                 "mi"
         );
-        System.out.println(rtpSession.query(5,rtpSession.query(3,1),0));
+        System.out.println(rtpSession.query(5,rtpSession.query(3,1),2));
     }
 }

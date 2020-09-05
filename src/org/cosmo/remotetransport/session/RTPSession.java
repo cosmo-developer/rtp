@@ -35,6 +35,10 @@ public class RTPSession {
         }
         services.add("rtp://"+ipAddress+":"+port+"/"+remoteName+"!"+serviceName+params);
     }
+    public int addServiceEx(String ipAddress,int port,String remoteName,String serviceName,String... paramsName){
+        addService(ipAddress,port,remoteName,serviceName,paramsName);
+        return services.size()-1;
+    }
     public void addService(String ipAddress,int port,String remoteName,String serviceName,String... paramsName){
         addService(ipAddress,port,remoteName,serviceName, Arrays.asList(paramsName));
     }
