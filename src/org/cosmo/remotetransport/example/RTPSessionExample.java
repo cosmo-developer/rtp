@@ -15,11 +15,11 @@ public class RTPSessionExample {
         RTPSession rtpSession=RTPSession.getInstance();
         rtpSession.addService(host,port, InbuiltServices.DEVICE_INFO_PROVIDER_SERVICES,"osname");
         rtpSession.addService(host,port,"fileservice","writeFile","filename","data");
-        rtpSession.addService(host,port,"fileservice","deleteFile","filename");
+        int deleteFile=rtpSession.addServiceEx(host,port,"fileservice","deleteFile","filename");
         System.out.println(rtpSession.getServiceParams(0));
         System.out.println(rtpSession.query(0));
         System.out.println(rtpSession.query(1,"Hello.txt","Hello World".getBytes()));
-        System.out.println(rtpSession.query(2,"Hello.txt"));
+        System.out.println(rtpSession.query(deleteFile,"Hello.txt"));
         rtpSession.addService(
                 host,
                 port,
