@@ -44,5 +44,13 @@ public class RTPSessionExample {
                 "mi"
         );
         System.out.println(rtpSession.query(5,rtpSession.query(3,1),2));
+        int ipAddress=rtpSession.addServiceEx(
+                host,
+                port,
+                "example",
+                "print",
+                "msg"
+                );
+        System.out.println(rtpSession.query(ipAddress,"Hello World"));
     }
 }

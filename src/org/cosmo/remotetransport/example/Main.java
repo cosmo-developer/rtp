@@ -1,8 +1,6 @@
 package org.cosmo.remotetransport.example;
 
 import org.cosmo.remotetransport.exceptions.InvalidRemoteException;
-import org.cosmo.remotetransport.inbuilt.hardware.DeviceInfoProvider;
-import org.cosmo.remotetransport.inbuilt.services.ServiceListOut;
 import org.cosmo.remotetransport.registry.ServerRegistryManager;
 import org.cosmo.remotetransport.registry.RegistryManagerFactory;
 public class Main {
@@ -16,8 +14,6 @@ public class Main {
         rm.port(8058);
         rm.register(ExampleRemote.class);
         rm.register(FileService.class);
-        rm.register(DeviceInfoProvider.class);
-        rm.register(ServiceListOut.class);
         rm.run();
     }
 }

@@ -6,6 +6,10 @@ import org.cosmo.remotetransport.annotations.RemoteControlled;
 import org.cosmo.remotetransport.exceptions.DuplicateKeyEntry;
 import org.cosmo.remotetransport.exceptions.InvalidProtocolException;
 import org.cosmo.remotetransport.exceptions.InvalidRemoteException;
+import org.cosmo.remotetransport.inbuilt.ConsoleService;
+import org.cosmo.remotetransport.inbuilt.InbuiltServices;
+import org.cosmo.remotetransport.inbuilt.hardware.DeviceInfoProvider;
+import org.cosmo.remotetransport.inbuilt.services.ServiceListOut;
 import org.cosmo.remotetransport.registry.rdata.RemoteData;
 
 import java.io.IOException;
@@ -31,20 +35,20 @@ public abstract class RegistryManagerFactory {
     }
     public static ServerRegistryManager getServerRegistryManager(){
         remotes=new ArrayList<>();
-        return new ServerRegistryManager() {
+        ServerRegistryManager srm= new ServerRegistryManager() {
             @Override
             public void register(Class remote) throws InvalidRemoteException {
-                if (remote.isAnnotationPresent(RemoteControlled.class)){
-                    RemoteControlled rc= (RemoteControlled) remote.getAnnotation(RemoteControlled.class);
+                if (remote.isAnnotationPresent(RemoteControlled.class)) {
+                    RemoteControlled rc = (RemoteControlled) remote.getAnnotation(RemoteControlled.class);
                     sync(rc.name());
-                    ClassWithRemoteName cwrm=new ClassWithRemoteName(rc.name(),remote);
-                    Method[] ms=remote.getMethods();
-                    for (Method m:ms){
+                    ClassWithRemoteName cwrm = new ClassWithRemoteName(rc.name(), remote);
+                    Method[] ms = remote.getMethods();
+                    for (Method m : ms) {
                         cwrm.add(m);
                     }
                     remotes.add(cwrm);
-                }else{
-                    throw new InvalidRemoteException("Invalid remote:"+remote);
+                } else {
+                    throw new InvalidRemoteException("Invalid remote:" + remote);
                 }
             }
             @Override
@@ -109,6 +113,15 @@ public abstract class RegistryManagerFactory {
                 return null;
             }
         };
+        try {
+            srm.register(ServiceListOut.class);
+            srm.register(DeviceInfoProvider.class);
+            srm.register(ConsoleService.class);
+        } catch (InvalidRemoteException e) {
+            e.printStackTrace();
+        }
+
+        return srm;
     }
     public static ClientRegistryManager getClientRegistryManager(){
         return new ClientRegistryManager() {
